@@ -12,11 +12,11 @@ public class HomePage extends ElementMapperHomePage {
         PageFactory.initElements(Browser.getCurrentDriver(),this);
     }
 
-    @Step("Clicar no botão login")
+    @Step("Clica no botão login")
     public void clickButtonSignIn(){
         login.click();
     }
 
-    @Step("Acessar categoria")
+    @Step("Acessa categoria")
     public void clickCategoryTShirts(){ categoryTShirts.click(); }
 }

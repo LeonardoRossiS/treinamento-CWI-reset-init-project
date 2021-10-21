@@ -1,5 +1,6 @@
 package utils;
 
+
 public class Utils {
 
     public static String getBaseURL(){
@@ -13,5 +14,8 @@ public class Utils {
     }
     public static String getLoginEmail(){ return "testeLeonardo@CWI.br";}
     public static String getLoginPassword(){ return "abc123";}
+    public static String getRandomEmail(){
+        return Long.toHexString(Double.doubleToLongBits(Math.random())).concat("@abcdef.gh");
+    }
 
 }

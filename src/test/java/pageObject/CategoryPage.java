@@ -11,7 +11,7 @@ public class CategoryPage extends ElementMapperCategoryPage {
 
     public String getCatName(){return catName.getText();}
 
-    @Step("Entrar na página do produto")
+    @Step("Entra na página do produto")
     public void clickProduct(){
         BasePage.mouseOver(productNameCategory);
         buttonMoreProductPage.click();
