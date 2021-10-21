@@ -1,7 +1,6 @@
 package tests;
 
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -9,7 +8,6 @@ import pageObject.*;
 import utils.Browser;
 import utils.Utils;
 
-import java.util.Random;
 
 import static org.junit.Assert.assertTrue;
 @Feature("Testes em site de e-commerce")
@@ -54,8 +52,8 @@ public class SetupTest extends BaseTest{
         HomePage home = new HomePage();
         CategoryPage catTShirts = new CategoryPage();
 
-        //home.clickCategoryTShirts();
-        Browser.getCurrentDriver().findElement(By.linkText(category)).click();
+        home.clickCategoryTShirts();
+        //Browser.getCurrentDriver().findElement(By.linkText(category)).click();
 
         assertTrue(catTShirts.getCatName().contains(category));
     }
@@ -119,7 +117,7 @@ public class SetupTest extends BaseTest{
         login.fillPassword();
         login.clickSubmitLogin();
         Browser.getCurrentDriver().findElement(By.linkText(cat)).click();
-        String productNameCategory = category.getProductNameCategory();
+        //String productNameCategory = category.getProductNameCategory();
         category.clickProduct();
         product.clickAddToCartPP();
         product.clickButtonModalProceedToCheckout();
