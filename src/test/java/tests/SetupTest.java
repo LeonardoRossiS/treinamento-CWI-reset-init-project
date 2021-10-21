@@ -1,5 +1,8 @@
 package tests;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import pageObject.*;
@@ -9,14 +12,16 @@ import utils.Utils;
 import java.util.Random;
 
 import static org.junit.Assert.assertTrue;
-
+@Feature("Testes em site de e-commerce")
 public class SetupTest extends BaseTest{
     @Test
+    @Story("Abrir o site")
     public void testOpeningBrowserAndLoadingPage(){
         assertTrue(Browser.getCurrentDriver().getCurrentUrl().contains(Utils.getBaseURL()));
         System.out.println("Abrimos o navegador e carregamos a URL");
     }
     @Test
+    @Story("Realizar o login")
     public void testLogIn(){
         HomePage home = new HomePage();
         home.clickButtonSignIn();
@@ -26,21 +31,22 @@ public class SetupTest extends BaseTest{
 
         LogInPage login = new LogInPage();
         login.fillEmail();
-        System.out.println("Preenchemos o e-mail");
+        //System.out.println("Preenchemos o e-mail");
         login.fillPassword();
-        System.out.println("Preenchemos a senha");
+        //System.out.println("Preenchemos a senha");
         login.clickSubmitLogin();
-        System.out.println("Clicamos em Sign In");
+        //System.out.println("Clicamos em Sign In");
         assertTrue(Browser.getCurrentDriver().getCurrentUrl()
                 .contains(Utils.getMyAccountURL()));
-        System.out.println("Acessamos a página do usuário");
-        assertTrue(Browser.getCurrentDriver().findElement(By.className("page-heading"))
-                .getText().contains("MY ACCOUNT"));
-        System.out.println("Confirmamos o heading da página do usuário");
+        //System.out.println("Validou a URL da página do usuário");
+        //assertTrue(Browser.getCurrentDriver().findElement(By.className("page-heading"))
+        //        .getText().contains("MY ACCOUNT"));
+        //System.out.println("Confirmamos o heading da página do usuário");
 
     }
 
     @Test
+    @Story("Acessar categoria")
     public void testAcessCategoryTShirts(){
         //Categorias: "WOMEN" "DRESSES" "T-SHIRTS"
         String category = "T-SHIRTS";
@@ -56,6 +62,7 @@ public class SetupTest extends BaseTest{
     }
 
     @Test
+    @Story("Entrar na página do produto")
     public void testEnterProductPage(){
         testAcessCategoryTShirts();
 
@@ -69,6 +76,7 @@ public class SetupTest extends BaseTest{
     }
 
     @Test
+    @Story("Adicionar produto ao carrinho, da página do produto")
     public void testAddProductToCartPP(){
         testEnterProductPage();
 

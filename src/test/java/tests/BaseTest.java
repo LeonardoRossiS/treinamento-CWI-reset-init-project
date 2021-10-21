@@ -13,5 +13,8 @@ public class BaseTest {
     }
 
     @After
-    public void tearDown(){ Browser.close(); }
+    public void tearDown(){
+        Browser.print();
+        Browser.close();
+    }
 }
